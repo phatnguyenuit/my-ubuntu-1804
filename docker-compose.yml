@@ -1,0 +1,18 @@
+version: "3"
+services:
+  node_ubuntu1804:
+    build: ./docker/ubuntu1804
+    image: phatnguyenuit/node_ubuntu1804
+    container_name: node_ubuntu1804_environment
+    ports:
+      - 3000:3000
+      - 3001:3001
+      - 3002:3002
+    volumes:
+      - ./sources:/home/dev/sources
+    restart: "no"
+    network_mode: "bridge"
+networks:
+  default:
+    external:
+      name: bridge
