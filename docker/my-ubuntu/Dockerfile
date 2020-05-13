@@ -2,7 +2,7 @@ FROM ubuntu:bionic
 
 # Feel free to change this to whatever your want
 ENV DOCKER_USER dev
-ENV PORT 3000
+ENV PORT 3000 4000 8069 8071 8072
 
 # Create user with passwordless sudo. This is only acceptable as it is a
 # private development environment not exposed to the outside world. Do 
@@ -54,4 +54,4 @@ RUN curl -o- https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/inst
 EXPOSE $PORT
 
 # Entrypoint
-ENTRYPOINT [ "./docker-entrypoint.sh" ]
+ENTRYPOINT ["./docker-entrypoint.sh"]

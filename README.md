@@ -1,2 +1,2 @@
-# my-ubuntu-1804
-Customized Ubuntu 1804 for NodeJS development
+# my-ubuntu
+Customized Ubuntu 1804 for development
