@@ -1,6 +1,8 @@
 FROM ubuntu:bionic
+
 # Feel free to change this to whatever your want
 ENV DOCKER_USER dev
+ENV PORT 3000
 
 # Create user with passwordless sudo. This is only acceptable as it is a
 # private development environment not exposed to the outside world. Do 
@@ -43,12 +45,13 @@ RUN . "$NVM_DIR/nvm.sh" && \
   nvm install --lts && \
   nvm alias default stable
 
+# Install Python
+RUN sudo apt-get install python3
+
 # Install ZSH
 RUN curl -o- https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh | bash
 
-EXPOSE 3000
-EXPOSE 3001
-EXPOSE 3002
+EXPOSE $PORT
 
 # Entrypoint
 ENTRYPOINT [ "./docker-entrypoint.sh" ]
